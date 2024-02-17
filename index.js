@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const UserRouter = require("./authentication/register");
+const UserRouter = require("./authentication/SponserRegister");
+const SponserRouter = require("./authentication/SponserRegister");
 // const cors = require("cors");
 const app = express();
 
@@ -13,7 +14,7 @@ const PORT = 4000;
 })
 app.use(express.json());
 // app.use(cors());
-app.use(UserRouter);
+app.use(SponserRouter);
 app.listen(PORT, ()=>{
     console.log(`the server is running at ${PORT}`);
 })

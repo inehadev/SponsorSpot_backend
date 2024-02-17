@@ -8,7 +8,20 @@ const UserSchema = mongoose.Schema({
    },
    password:{
     type:String
-   }
+   },
+   CompanyName:{
+    type:String
+   },
+   CompanyLogo:{
+    type:String
+   },
+   EevntName:{
+    type:String
+   },
+   EventDetail:{
+    type:String
+   },
+
 });
  
    
