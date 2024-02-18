@@ -15,7 +15,7 @@ const UserSchema = mongoose.Schema({
    CompanyLogo:{
     type:String
    },
-   EevntName:{
+   EeventName:{
     type:String
    },
    EventDetail:{

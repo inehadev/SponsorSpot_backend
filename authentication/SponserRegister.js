@@ -3,10 +3,11 @@ const User = require('../models/user');
 const bcrypt = require ('bcrypt')
 const SponserRouter = express.Router();
 
-SponserRouter.post('/sponserRegister' , async (req , res) =>{
+SponserRouter.post('/sponsorRegister' , async (req , res) =>{
+    
     try{
     const {username , email , password , CompanyName , CompanyLogo} = req.body;
-    const existingUser = await User.findOne({username , email });
+    const existingUser = await User.findOne({username , email , CompanyName });
     if(existingUser){
         return res.status(400).json(`User already register try with another email`);
     }

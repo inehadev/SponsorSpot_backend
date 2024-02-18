@@ -2,7 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const UserRouter = require("./authentication/SponserRegister");
 const SponserRouter = require("./authentication/SponserRegister");
-// const cors = require("cors");
+const SponserLoginRouter = require("./authentication/SponsorLogin");
+const EventRouter = require("./authentication/EventRegister");
+const EventLoginRouter = require("./authentication/EventLogin");
+
+
+const cors = require("cors");
 const app = express();
 
 const PORT = 4000;
@@ -13,8 +18,11 @@ const PORT = 4000;
     console.log(e);
 })
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 app.use(SponserRouter);
+app.use(SponserLoginRouter)
+app.use(EventRouter);
+app.use(EventLoginRouter)
 app.listen(PORT, ()=>{
     console.log(`the server is running at ${PORT}`);
 })
