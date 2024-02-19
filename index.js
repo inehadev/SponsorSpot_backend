@@ -20,9 +20,9 @@ const PORT = 4000;
 app.use(express.json());
 app.use(cors());
 app.use(SponserRouter);
-app.use(SponserLoginRouter)
+app.use(SponserLoginRouter);
 app.use(EventRouter);
-app.use(EventLoginRouter)
+app.use(EventLoginRouter);
 app.listen(PORT, ()=>{
     console.log(`the server is running at ${PORT}`);
 })

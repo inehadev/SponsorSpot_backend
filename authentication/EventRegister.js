@@ -12,12 +12,12 @@ EventRouter.post('/eventRegister' ,  async (req,res)=>{
     if(existingUser){
         return res.status(500).json(`User already registered try with different email`);
     }
-    const securepassword = bcrypt.hash(password ,10);
+    const securepassword = await  bcrypt.hash(password ,10);
     
         let user = new User({
             username,
             email,
-            password,
+            password:securepassword,
             EventName,
             EventDetail
         })
