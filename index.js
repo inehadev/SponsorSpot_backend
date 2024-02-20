@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const UserRouter = require("./authentication/SponserRegister");
 const SponserRouter = require("./authentication/SponserRegister");
 const SponserLoginRouter = require("./authentication/SponsorLogin");
-const EventRouter = require("./authentication/EventRegister");
-const EventLoginRouter = require("./authentication/EventLogin");
-
-
+const EventOrganizerRouter = require("./authentication/EventOrganizerRegister");
+const EventLoginRouter = require("./authentication/EventOrganizerLogin");
 const cors = require("cors");
+const eventRouter = require("./events/event");
+
 const app = express();
 
 const PORT = 4000;
@@ -21,7 +21,8 @@ app.use(express.json());
 app.use(cors());
 app.use(SponserRouter);
 app.use(SponserLoginRouter);
-app.use(EventRouter);
+app.use(eventRouter)
+app.use(EventOrganizerRouter)
 app.use(EventLoginRouter);
 app.listen(PORT, ()=>{
     console.log(`the server is running at ${PORT}`);

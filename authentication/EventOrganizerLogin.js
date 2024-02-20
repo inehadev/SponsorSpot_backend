@@ -1,13 +1,13 @@
 const express = require('express');
-const User = require('../models/user');
+const Eventorganizer = require('../models/eventOrganizermodel');
 const EventLoginRouter = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-EventLoginRouter.post('/EventLogin' , async( req,res)=>{
+EventLoginRouter.post('/eventOrganizerLogin' , async( req,res)=>{
     try {
         const {username , email , password} = req.body;
-    const existingUser = await  User.findOne({username , email });
+    const existingUser = await  Eventorganizer.findOne({username , email });
     if(!existingUser){
         console.log("Invalid Email");
         res.status(400).json(`Invalid Email`);
